@@ -26,12 +26,12 @@ Usage:
    Kerberosのロギングが有効になっている場合、この操作によってWindowsイベントのID4768が生成される。
 
 
-####　GetNPUsers.pyを使用したKerberosへの攻撃
+#### GetNPUsers.pyを使用したKerberosへの攻撃
 Impacket内にあるGetNPUSers.pyを使用してKDCへ『ASReproastable』アカウントを照会する。<br>
 この手順で前段で列挙したユーザー名リストが必要
 『ASReproastable』とはユーザーアカウントに対してpre-authenticationを必要としない特権が設定されている状態。
 Kerberos認証のログインでは最初にKDCへ『KRB_AS_REQ』を送信する。<br>
-この時KDCでは通常、idとpassword hashを確認して『KRB_AS_REP』を返却してくるが、対象ユーザーがASReproastableの場合、
+この時KDCでは通常、idとpassword hashを確認して『KRB_AS_REP』を返却してくるが、対象ユーザーがASREPRoastableの場合、
 認証無しでKRB_AS_REPを返却する。<br>
 このようなユーザーをGetNPUsers.pyは列挙してくれる。
 
